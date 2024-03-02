@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+</head>
+<body>
+
+    <style>
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+        .container{
+            align-items: center;
+            width:100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            z-index: 0;
+        }
+        .hidden{
+            display:none;
+        }
+        .overlay{
+            background-color: black;
+            opacity: 0.7;
+            height: 100vh;
+            width: 100vw;
+            position: absolute;
+            z-index: 1;
+            
+        }
+        .img1_main{
+            z-index: 3;
+            border: 1px white solid;
+            align-items: center;
+        }
+        .img1_main span{
+            position: absolute;
+            top: 0;
+            cursor: pointer;
+            right: 0;
+        }
+        .img2_main{
+            z-index: 3;
+            border: 1px white solid;
+            align-items: center;
+        }
+        .img2_main span{
+            position: absolute;
+            top: 0;
+            cursor: pointer;
+            right: 0;
+        }
+        .img3_main{
+            z-index: 3;
+            border: 1px white solid;
+            align-items: center;
+        }
+        .img3_main span{
+            position: absolute;
+            top: 0;
+            cursor: pointer;
+            right: 0;
+        }
+    </style>
+    <div class="overlay hidden">
+    </div>
+    <div id="gal" class="container">
+        <img id="img1" src="./img-1.jpg" alt="image">
+        <img id="img2" src="./img-2.jpg" alt="image">
+        <img id="img3" src="./img-3.jpg" alt="image">
+    </div>
+
+    <div class="img1_main hidden">
+        <span id="close1">X</span>
+        <img src="./img-1.jpg" style="width: 100%;" alt="">
+
+    </div>
+    <div class="img2_main hidden">
+        <span id="close2">X</span>
+        <img src="./img-2.jpg" style="width: 100%;" alt="">
+
+    </div>
+    <div class="img3_main hidden">
+        <span id="close3">X</span>
+        <img src="./img-3.jpg" style="width: 100%;" alt="">
+
+    </div>
+    <script>
+        var gal=document.getElementById("gal")
+        var img1_main=document.querySelector(".img1_main")
+        var img2_main=document.querySelector(".img2_main")
+        var img3_main=document.querySelector(".img3_main")
+        var close1=document.getElementById("close1")
+        var close2=document.getElementById("close2")
+        var close3=document.getElementById("close3")
+        img1.addEventListener("click",function(){
+            gal.classList.add("overlay")
+            img1_main.classList.remove("hidden")
+            close1.addEventListener("click",function(){
+                gal.classList.remove("overlay")
+                img1_main.classList.add("hidden")
+            
+        })
+
+
+        })
+        img2.addEventListener("click",function(){
+            gal.classList.add("overlay")
+            img2_main.classList.remove("hidden")
+            close2.addEventListener("click",function(){
+                gal.classList.remove("overlay")
+                img2_main.classList.add("hidden")
+            
+        })
+
+
+        })
+        img3.addEventListener("click",function(){
+            gal.classList.add("overlay")
+            img3_main.classList.remove("hidden")
+            close3.addEventListener("click",function(){
+                gal.classList.remove("overlay")
+                img3_main.classList.add("hidden")
+            
+        })
+
+
+        })
+        
+    </script>
+    
+</body>
+</html>
